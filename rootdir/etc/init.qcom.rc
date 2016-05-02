@@ -530,6 +530,7 @@ service wcnss-service /vendor/bin/wcnss_service
     class main
     user system
     group system wifi radio
+    writepid /dev/cpuset/system-background/tasks
 
 #start camera server as daemon
 service qcamerasvr /vendor/bin/mm-qcamera-daemon
@@ -542,11 +543,13 @@ service charger /charger
     class charger
     group log
     seclabel u:r:charger:s0
+    writepid /dev/cpuset/system-background/tasks
 
 service loc_launcher /vendor/bin/loc_launcher
     class late_start
     user gps
     group gps
+    writepid /dev/cpuset/system-background/tasks
 
 # Allow usb charging to be disabled peristently
 on property:persist.usb.chgdisabled=1
@@ -559,6 +562,7 @@ service qseecomd /vendor/bin/qseecomd
    class core
    user root
    group root
+   writepid /dev/cpuset/system-background/tasks
 
 service thermal-engine /vendor/bin/thermal-engine
    class main
@@ -567,16 +571,19 @@ service thermal-engine /vendor/bin/thermal-engine
    socket thermal-recv-client stream 0660 system system
    socket thermal-recv-passive-client stream 0666 system system
    group root
+   writepid /dev/cpuset/system-background/tasks
 
 service thermal-com /vendor/bin/thermal-engine --minimode
     class main
     user root
     disabled
+    writepid /dev/cpuset/system-background/tasks
 
 service time_daemon /vendor/bin/time_daemon
    class late_start
    user root
    group root
+   writepid /dev/cpuset/system-background/tasks
 
 # corefile limit and ETB enabling
 on property:persist.debug.trace=1
@@ -615,6 +622,7 @@ service rmt_storage /vendor/bin/rmt_storage
     user root
     group system wakelock
     disabled
+    writepid /dev/cpuset/system-background/tasks
 
 on property:ro.boot.emmc=true
     start rmt_storage
@@ -650,11 +658,13 @@ service qmuxd /vendor/bin/qmuxd
     class main
     user root
     group radio audio bluetooth gps nfc oem_2950
+    writepid /dev/cpuset/system-background/tasks
 
 service netmgrd /vendor/bin/netmgrd
     class main
     user root
     group root wifi wakelock radio inet oem_2950
+    writepid /dev/cpuset/system-background/tasks
 
 on property:ro.use_data_netmgrd=false
     # netmgr not supported on specific target
@@ -684,6 +694,7 @@ service ril-daemon2 /vendor/bin/hw/rild -c 2
     disabled
     group radio cache inet misc audio log readproc wakelock
     capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
+    writepid /dev/cpuset/system-background/tasks
 
 service rild2-wrapper /vendor/bin/init.qcom.ril.sh
     class late_start
@@ -702,6 +713,7 @@ service vendor.imsqmidaemon /vendor/bin/imsqmidaemon
     user system
     socket ims_qmid stream 0660 system radio
     group radio log diag
+    writepid /dev/cpuset/system-background/tasks
 
 service vendor.imsdatadaemon /vendor/bin/imsdatadaemon
     class main
@@ -709,6 +721,7 @@ service vendor.imsdatadaemon /vendor/bin/imsdatadaemon
     socket ims_datad stream 0660 system radio
     group system wifi radio inet log diag
     disabled
+    writepid /dev/cpuset/system-background/tasks
 
 on property:vendor.ims.QMI_DAEMON_STATUS=1
     start vendor.imsdatadaemon
@@ -719,12 +732,14 @@ service vendor.ims_rtp_daemon /vendor/bin/ims_rtp_daemon
     socket ims_rtpd stream 0660 system radio
     group radio diag inet log
     disabled
+    writepid /dev/cpuset/system-background/tasks
 
 service vendor.imscmservice /vendor/bin/imscmservice
     class main
     user system
     group radio diag inet log
     disabled
+    writepid /dev/cpuset/system-background/tasks
 
 service vendor.imsrcsservice /vendor/bin/imsrcsd
     class main
@@ -732,6 +747,7 @@ service vendor.imsrcsservice /vendor/bin/imsrcsd
     group radio diag log
     writepid /dev/cpuset/system-background/tasks
     disabled
+    writepid /dev/cpuset/system-background/tasks
 
 on property:vendor.ims.DATA_DAEMON_STATUS=1
     start vendor.ims_rtp_daemon
