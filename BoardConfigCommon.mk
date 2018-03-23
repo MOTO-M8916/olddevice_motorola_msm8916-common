@@ -170,6 +170,10 @@ TARGET_HAS_LEGACY_POWER_STATS := true
 TARGET_HAS_NO_WLAN_STATS := true
 TARGET_USES_INTERACTION_BOOST := true
 
+# Sp-shim
+TARGET_LD_PRELOAD := \
+    /system/lib/libboringssl-compat.so
+
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
 BOARD_WLAN_DEVICE := qcwcn
