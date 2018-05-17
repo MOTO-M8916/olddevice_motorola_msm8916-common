@@ -128,6 +128,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	camera2.portability.force_api=1 \
+        ro.config.hw_camera_hdr=true \
 	debug.camcorder.disablemeta=true
 
 # Camera configurations
