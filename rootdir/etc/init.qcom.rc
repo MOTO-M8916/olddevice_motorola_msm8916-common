@@ -551,6 +551,11 @@ service loc_launcher /vendor/bin/loc_launcher
     group gps
     writepid /dev/cpuset/system-background/tasks
 
+service loc_launcher /vendor/bin/loc_launcher
+    #loc_launcher will start as root and set its uid to gps
+    class late_start
+    group gps inet diag wifi
+
 # Allow usb charging to be disabled peristently
 on property:persist.usb.chgdisabled=1
     write /sys/class/power_supply/battery/charging_enabled 0
