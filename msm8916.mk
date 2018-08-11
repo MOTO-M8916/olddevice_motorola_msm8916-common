@@ -124,7 +124,8 @@ PRODUCT_PACKAGES += \
     libc_util \
     libboring \
     libshim_camera \
-    Snap
+    Snap \
+    libjustshoot_shim
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	camera2.portability.force_api=1 \
