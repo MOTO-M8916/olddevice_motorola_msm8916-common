@@ -141,6 +141,7 @@ TARGET_SYSTEM_PROP += $(VENDOR_PATH)/system.prop
 
 # Qualcomm support
 BOARD_USES_QCOM_HARDWARE := true
+TARGET_USES_OLD_MNC_FORMAT := true
 
 # Recovery
 BOARD_HAS_NO_SELECT_BUTTON := true
