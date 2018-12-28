@@ -248,7 +248,10 @@ PRODUCT_COPY_FILES += \
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
 	vidc.enc.narrow.searchrange=1 \
-	persist.media.treble_omx=false
+	mm.enable.smoothstreaming=true \
+	mmp.enable.3g2=true \
+	media.aac_51_output_enabled=true \
+	audio.offload.video=true
 
 # OMX
 PRODUCT_PACKAGES += \
