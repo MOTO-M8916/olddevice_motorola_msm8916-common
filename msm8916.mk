@@ -308,7 +308,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	rild.libargs=-d/dev/smd0 \
 	rild.libpath=/vendor/lib/libril-wrapper.so \
 	persist.radio.add_power_save=1 \
-	ro.use_data_netmgrd=true \
+	ro.vendor.use_data_netmgrd=true \
  	persist.data.netmgrd.qos.enable=true
 
 # Telephony
