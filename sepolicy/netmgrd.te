@@ -1,1 +1,0 @@
-allow netmgrd sysfs_net:dir search;

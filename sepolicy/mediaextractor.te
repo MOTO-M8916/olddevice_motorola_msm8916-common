@@ -1,5 +1,2 @@
-allow mediaextractor sdcardfs:file read;
-allow mediaextractor vfat:file read;
-
 # allow mediaextractor read permissions for file sources
 allow mediaextractor sdcard_type:file { getattr read };
