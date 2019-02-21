@@ -211,16 +211,16 @@ PRODUCT_PACKAGES += \
     ims-ext-common
 
 PRODUCT_PROPERTY_OVERRIDES += \
+	persist.radio.jbims=0 \
+	persist.radio.calls.on.ims=0 \
+	persist.dbg.ims_volte_enable=1 \
 	persist.dbg.volte_avail_ovr=1 \
-	persist.radio.jbims=1 \
-	persist.radio.ROTATION_ENABLE=1 \
-	persist.radio.VT_ENABLE=1 \
-	persist.radio.VT_HYBRID_ENABLE=1 \
-	persist.radio.VT_USE_MDM_TIME=0 \
-	persist.dbg.vt_avail_ovr=1 \
+	persist.dbg.wfc_avail_ovr=0 \
+	persist.vendor.ims.dropset_feature=0 \
+	vendor.service.qti.ims.enabled=1 \
+	vendor.ims.modem.multisub.cap=2 \
 	persist.volte_enabled_by_hw=1 \
-	persist.data.iwlan.enable=true \
- 	vendor.service.qti.ims.enabled=1
+	persist.data.iwlan.enable=true
 
 PRODUCT_PACKAGES += \
     libcurl \
